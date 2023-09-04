@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ProyectoTicmasDAM</string>
+    <string name="comparar">Comparar</string>
+    <string name="descripcion">Escribe dos Palabras Para Compararlas</string>
+    <string name="primer_palabra">Primer Palabra</string>
+    <string name="segunda_palabra">Segunda Palabra</string>
+    <string name="string_vacio">El texto no puede estar vacio</string>
+    <string name="string_especial">El texto no puede tener caracteres especiales</string>
+    <string name="string_iguales">Los Textos Son Iguales</string>
+    <string name="string_distintos">Los Textos Son Distintos</string>
+
+
+
+</resources>

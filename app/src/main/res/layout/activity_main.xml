@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <data>
+        <variable name="viewmodel" type="com.curso.android.app.practica.proyectoticmasdam.view.MainViewModel" />
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_activity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/text_response"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:layout_marginBottom="16dp"
+            android:text="@{viewmodel.textResponse == null ? @string/descripcion : viewmodel.textResponse}"
+            android:textSize="32sp"
+            android:textColor="@{viewmodel.textResponse == null ? @android:color/secondary_text_light : viewmodel.textResponse.equals(@string/string_especial) || viewmodel.textResponse.equals(@string/string_vacio) ? @color/red : viewmodel.textResponse.equals(@string/string_distintos) ? @color/orange : viewmodel.textResponse.equals(@string/string_iguales) ? @color/green : @android:color/secondary_text_light }"
+            android:gravity="center"
+            android:shadowColor="@color/black"
+            android:shadowRadius=".6"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            app:layout_constraintBottom_toTopOf="@+id/linear"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="32dp"
+            android:orientation="horizontal"
+            app:layout_constraintWidth_percent="0.8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_response"
+            app:layout_constraintBottom_toTopOf="@+id/comparator_button"
+            app:layout_constraintStart_toStartOf="parent"
+            >
+
+            <EditText
+                android:id="@+id/text_1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:autofillHints="name"
+                android:hint="@string/primer_palabra"
+                android:inputType="text"
+                android:text="@={viewmodel.input1}">
+
+            </EditText>
+
+            <Space
+                android:layout_width="8dp"
+                android:layout_height="match_parent">
+
+            </Space>
+
+            <EditText
+                android:id="@+id/text_2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:autofillHints="name"
+                android:hint="@string/segunda_palabra"
+                android:inputType="text"
+                android:text="@={viewmodel.input2}">
+
+            </EditText>
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/comparator_button"
+            android:layout_width="237dp"
+            android:layout_height="wrap_content"
+            android:text="@string/comparar"
+            app:layout_constraintTop_toBottomOf="@+id/linear"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
